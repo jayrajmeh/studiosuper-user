@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import queryString from "query-string";
 import { ErrorToast } from '../helpers/Toast';
 import moment from 'moment';
+import Header from '../component/header';
 
 
 
@@ -39,13 +40,14 @@ function HomePage() {
   };
   return (
     <div>
+       <Header/>
      <h1>List of Student</h1>
       <div className="school-list">
         {schools.map(school => (
           <div className="school" key={school._id}  onClick={() => handleSchoolTabClick(school._id)}>
             {/* <img src={school.imageUrl} alt={school.name} /> */}
             <div className="school-details">
-              <h3>{school.name ? school.name:"Add Student details Click here"}</h3>
+              <h3>{school.surname ? school.surname+" " + school.studentname+" " +school.fathername :"Add Student details Click here"}</h3>
               <h3>{moment(school.dateofbirth).format('DD-MM-YYYY')}</h3>
               {/* <p>{school.location}</p> */}
             </div>

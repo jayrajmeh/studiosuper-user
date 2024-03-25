@@ -9,7 +9,6 @@ import StudentPage from './pages/student';
 import StudentDetailPage from './pages/studentDetails';
 
 
-import PrivateRoute from './component/privateRoute';
 
 function App() {
   const isLoggedIn = !!localStorage.getItem('token');
@@ -20,16 +19,15 @@ function App() {
         <Route path="/" exact element={<LoginPage />} />
         
       ) : (
-        <>
+          <>
         <Route path="/" exact element={<HomePage />} />
         <Route path="/home" exact element={<HomePage />} />
         <Route path="/class" exact element={<ClassPage />} />
         <Route path="/student" exact element={<StudentPage />} />
         <Route path="/studentdetails" exact element={<StudentDetailPage />} />
-
-
-
         </>
+
+
 
       )}
 

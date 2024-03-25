@@ -3,7 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { ApiGet } from '../helpers/API/ApiData';
 import { useNavigate } from 'react-router-dom';
-
+import { ErrorToast } from '../helpers/Toast';
+import Header from '../component/header';
 function HomePage() {
   const navigate = useNavigate();
   const [schools, setSchools] = useState([]);
@@ -32,6 +33,7 @@ function HomePage() {
   };
   return (
     <div>
+      <Header/>
      <h1>List of Schools</h1>
       <div className="school-list">
         {schools.map(school => (

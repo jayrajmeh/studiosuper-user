@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { ApiGet } from '../helpers/API/ApiData';
 import { useNavigate } from 'react-router-dom';
 import queryString from "query-string";
+import Header from '../component/header';
+import { ErrorToast } from '../helpers/Toast';
 
 
 function HomePage() {
@@ -36,6 +38,7 @@ function HomePage() {
   };
   return (
     <div>
+       <Header/>
      <h1>List of Class</h1>
       <div className="school-list">
         {schools.map(school => (
