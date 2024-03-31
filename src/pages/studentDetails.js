@@ -74,10 +74,10 @@ function StudentDetails() {
         formIsValid = false;
         errors["dateofbirth"] = "Please Enter Date Of Birth";
       }
-      if(!formData.bloodgroup && schoolData.includes("bloodgroup")){
-        formIsValid = false;
-        errors["bloodgroup"] = "Please Select Bloodgroup";
-      }
+      // if(!formData.bloodgroup && schoolData.includes("bloodgroup")){
+      //   formIsValid = false;
+      //   errors["bloodgroup"] = "Please Select Bloodgroup";
+      // }
     // if (!newData.type && newData.type !== 0) {
     //   formIsValid = false;
     //   errors["type"] = "Please Select Type";
@@ -326,16 +326,13 @@ console.log(formIsValid)
       <option value="O-">O-</option>
     </select>
   </div>
-  {error?.bloodgroup &&
-    <span className="errorInput">
-      {error["bloodgroup"]}
-    </span>}
+  
 </div>:null}
         {!edit?<><input type="submit" disabled={button} onClick={()=>handleSubmit()}  />{loading && <span className="ml-3 spinner spinner-white"></span>}</>:null}
       </div>:<div><img src={"https://studiosuper.s3.ap-south-1.amazonaws.com/"+formData.photo} alt="Image" style={{ maxWidth: '100%' }} />
       { formData.status==2?<div>
-        Please confirm if this ID card is accurate. If not, please provide the incorrect details and suggest the correct information. 
-       
+        Kindly verify the accuracy of this ID card. If it's incorrect, click on the option indicating inaccuracies. Please provide the correct details in below box. For any other related issues, please contact us at 9909144288. 
+       (કૃપા કરીને આ ID કાર્ડની ચોકસાઈ ચકાસો. જો તે ખોટું છે, તો "ખોટું" દર્શાવતા વિકલ્પ પર ક્લિક કરો. કૃપા કરીને નીચેના બોક્સમાં સાચી વિગતો આપો. કોઈપણ અન્ય સંબંધિત સમસ્યાઓ માટે, કૃપા કરીને અમારો 9909144288 પર સંપર્ક કરો.)
        <div> <textarea 
     id="reason" 
     name="reason" 
@@ -346,10 +343,16 @@ console.log(formIsValid)
     required 
   /></div>
   <div>
-        <button className="correctButton" onClick={()=>callOk()}>Correct</button>
-        <button className="incorrectButton" onClick={()=>callnotOk()}>Incorrect</button>
+        <button className="correctButton" onClick={()=>callOk()}>Correct-સાચું</button>
+        <button className="incorrectButton" onClick={()=>callnotOk()}>Incorrect-ખોટું</button>
         </div></div>:null}
       </div>}
+{/* <br></br>
+<br></br>
+<br></br>
+<br></br>
+
+      <a href="tel:9909144288" className="call-button">Any Query Call Support - 9909144288</a> */}
     </div>
   );
 }

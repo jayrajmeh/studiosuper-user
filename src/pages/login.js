@@ -1,7 +1,7 @@
 // LoginPage.js
 
 import React, { useState } from 'react';
-import { ApiPostNoAuth } from '../helpers/API/ApiData';
+import { ApiPostNoAuth, Bucket } from '../helpers/API/ApiData';
 import { toast, ToastContainer } from "react-toastify";
 import { ErrorToast, SuccessToast } from '../helpers/Toast';
 import "react-toastify/dist/ReactToastify.css";
@@ -66,7 +66,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
      <Toaster/>
-
+     <img src={"https://studiosuper.s3.ap-south-1.amazonaws.com/"+"thumbnail/1711869852265.png"} alt="Login Image" height={120} width={275} />
       <h2>Login</h2>
       {/* <form> */}
         <div className="form-group">
