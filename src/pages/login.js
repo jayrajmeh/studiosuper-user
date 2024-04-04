@@ -66,7 +66,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
      <Toaster/>
-     <img src={"https://studiosuper.s3.ap-south-1.amazonaws.com/"+"thumbnail/1711869852265.png"} alt="Login Image" height={120} width={275} />
+     <img src={"https://studiosuper.s3.ap-south-1.amazonaws.com/"+"thumbnail/1712251322708.jpg"} alt="Login Image" height={120} width={275} />
       <h2>Login</h2>
       {/* <form> */}
         <div className="form-group">

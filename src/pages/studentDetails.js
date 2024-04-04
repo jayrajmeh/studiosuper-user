@@ -103,17 +103,28 @@ console.log(formIsValid)
     // Check if the field name is one of the specified fields
     if (["surname", "studentname", "fathername", "address"].includes(name)) {
       // Capitalize the first letter of each word
-      capitalizedValue = capitalizedValue.toUpperCase();
+      const allowedRegex = /^[a-zA-Z0-9!@#$%^&*()\-_=+{}|;:'",.<>/?[\]`~\s]*$/;
+      if (allowedRegex.test(capitalizedValue)) {
+        // Capitalize the first letter of each word
+        capitalizedValue = capitalizedValue.toUpperCase();
+    } else {
+        // If the value contains disallowed characters, do not print it
+        capitalizedValue = "";
+    }
+      
     }
     if (["mobile", "mobile2"].includes(name)) {
       // Capitalize the first letter of each word
       let sanitizedValue = capitalizedValue.replace(/\D/g, ''); // Remove all non-digit characters
       capitalizedValue = sanitizedValue.slice(0, 10);
     }
-    setFormData({
-      ...formData,
-      [name]: capitalizedValue
-    });
+  
+      setFormData({
+        ...formData,
+        [name]: capitalizedValue
+      });
+   
+   
   };
 
   const handleSubmit = () => {
