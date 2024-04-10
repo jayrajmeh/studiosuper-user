@@ -172,6 +172,7 @@ console.log(formIsValid)
   const callOk = () =>{
     let body = {
       _id:Studentid,
+      reason:"",
       status:4
     }
     ApiPut("/update_status", body)
@@ -192,26 +193,35 @@ console.log(formIsValid)
   }
 
   const callnotOk = () =>{
-    let body = {
-      _id:Studentid,
-      reason:formData.reason,
-      status:3
-    }
-    ApiPut("/update_status", body)
-            .then((res) => {
-              console.log("ressssssssssss", res);
-              SuccessToast("Successful Updated");
-              disableLoading();
-              setbutton(false);
-              navigate(`/student?id=${formData.class}`);
-            })
-            .catch(async (err) => {
-              
-                ErrorToast(err.message);
+    if(!formData.reason){
+    let errors = {};
+    errors["reason"] = "Please Enter Correct Detail";
+    setError(errors);
+
+
+    }else{
+      let body = {
+        _id:Studentid,
+        reason:formData.reason,
+        status:3
+      }
+      ApiPut("/update_status", body)
+              .then((res) => {
+                console.log("ressssssssssss", res);
+                SuccessToast("Successful Updated");
                 disableLoading();
                 setbutton(false);
-            
-            });
+                navigate(`/student?id=${formData.class}`);
+              })
+              .catch(async (err) => {
+                
+                  ErrorToast(err.message);
+                  disableLoading();
+                  setbutton(false);
+              
+              });
+    }
+   
   }
 
   
@@ -353,6 +363,10 @@ console.log(formIsValid)
     rows={5} 
     required 
   /></div>
+  {error?.reason &&
+								<span className="errorInput">
+									{error["reason"]}
+								</span>}
   <div>
         <button className="correctButton" onClick={()=>callOk()}>Correct-સાચું</button>
         <button className="incorrectButton" onClick={()=>callnotOk()}>Incorrect-ખોટું</button>
