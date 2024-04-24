@@ -49,8 +49,13 @@ function HomePage() {
             <div className="school-details">
               <h3>{school.surname ? school.surname+" " + school.studentname+" " +school.fathername :"Add Student details Click here"}</h3>
               <h3>{moment(school.dateofbirth).format('DD-MM-YYYY')}</h3>
+              {school.status>0?<div style={{ backgroundColor: 'green', color: 'white', padding: '10px', marginTop: '10px' }}>
+                 Your form submitted ,Thank You
+            </div>:null}
               {/* <p>{school.location}</p> */}
             </div>
+          
+
           </div>
         ))}
       </div>
